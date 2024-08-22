@@ -7,23 +7,23 @@ const Usrhalls = () => {
     const [data, setData] = useState([]);
     const [data_type, setDataType] = useState("All");
 
-    const FetchData = async () => {
-        try {
-            const resp = await fetch("http://localhost:5000/apilisthalls/" + data_type + "/" + capacity);
-            if (resp.ok) {
-                let jsonData = await resp.json();
-                setData(jsonData);
-            } else {
-                alert("Parameters not found");
-            }
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    };
-
     useEffect(() => {
+        const FetchData = async () => {
+            try {
+                const resp = await fetch(`http://localhost:5000/apilisthalls/${data_type}/${capacity}`);
+                if (resp.ok) {
+                    let jsonData = await resp.json();
+                    setData(jsonData);
+                } else {
+                    alert("Parameters not found");
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
         FetchData();
-    }, [data_type, capacity]); // Añadido data_type y capacity como dependencias
+    }, [data_type, capacity]);
 
     const handleCapacityChange = (event) => {
         setIsMore(false);
@@ -71,7 +71,7 @@ const Usrhalls = () => {
                                             <option value="Classic">Classic</option>
                                             <option value="Thematic">Thematic</option>
                                             <option value="Outdoor">Outdoor</option>
-                                        </select> <br></br><br></br>
+                                        </select> <br /><br />
                                     </div>
                                     <div className="col-lg-6">
                                         <label htmlFor="capacityRange">Max. Capacity: {isMore ? 'More' : capacity}</label>
@@ -107,10 +107,10 @@ const Usrhalls = () => {
                                     <div key={filname.ProId} className="col-lg-3 col-md-6 col-sm-6 mix new-arrivals">
                                         <div className="product__item">
                                             <div className="product__item__pic set-bg">
-                                                <img style={{ width: 'auto', height: 275 }} src={'http://localhost:5000/images/' + filname.ProImagen} alt={filname.ProNombre} />
+                                                <img style={{ width: 'auto', height: 275 }} src={`http://localhost:5000/images/${filname.ProImagen}`} alt={filname.ProNombre} />
                                                 <span className="label">{filname.ProTipo}</span>
 
-                                                <ul className="product__hover"><br></br>
+                                                <ul className="product__hover"><br />
                                                     <li className="label2">{filname.ProColor}</li>
                                                     <li className="label2">{filname.ProPeso} Kg</li>
                                                     <li className="label2">{filname.ProModelo}</li>

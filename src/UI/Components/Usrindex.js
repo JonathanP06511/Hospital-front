@@ -6,7 +6,6 @@ import room2 from '../img/index/02.jpg';
 import room3 from '../img/index/03.jpg';
 import room4 from '../img/index/04.jpg';
 import serv1 from '../img/index/05.jpg';
-import serv2 from '../img/index/serv2.png';
 import serv3 from '../img/index/06.png';
 import bn1 from '../img/index/BANNER-SALUD1.jpg';
 import bn2 from '../img/index/BANNER-SALUD2.jpg';
@@ -42,18 +41,16 @@ function Usrindex(args) {
         setActiveIndex(newIndex);
     };
 
-    const slides = items.map((item) => {
-        return (
-            <CarouselItem
-                onExiting={() => setAnimating(true)}
-                onExited={() => setAnimating(false)}
-                key={item.src}
-            >
-                <img src={item.src} alt="Carousel image" />
-                <CarouselCaption captionText="" captionHeader="" />
-            </CarouselItem>
-        );
-    });
+    const slides = items.map((item) => (
+        <CarouselItem
+            onExiting={() => setAnimating(true)}
+            onExited={() => setAnimating(false)}
+            key={item.src}
+        >
+            <img src={item.src} alt="" />
+            <CarouselCaption captionText="" captionHeader="" />
+        </CarouselItem>
+    ));
 
     const fetchVideo = async () => {
         try {
@@ -85,7 +82,7 @@ function Usrindex(args) {
                     <div className="section-title text-center">
                         <br />
                         <span className="text-uppercase text-danger">Video Presentation</span>
-                        <h2 className="text-uppercase"></h2>
+                        <h2></h2>
                     </div>
                 </div>
                 <br />
@@ -112,7 +109,7 @@ function Usrindex(args) {
                             <div className="instagram__pic d-flex flex-wrap">
                                 {[room1, room2, room3, room4, serv1, serv3].map((img, index) => (
                                     <div key={index} className="instagram__pic__item col-lg-4 col-md-4 col-sm-6 p-1">
-                                        <img src={img} className="img-fluid" alt="Instagram post" />
+                                        <img src={img} className="img-fluid" alt="" />
                                     </div>
                                 ))}
                             </div>
