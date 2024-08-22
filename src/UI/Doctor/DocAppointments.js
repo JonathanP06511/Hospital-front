@@ -29,13 +29,7 @@ const DocAppointments = () => {
     };
 
     const handleApprove = () => {
-     
         setData([]);
-    };
-
-    const Logout = () => {
-        sessionStorage.setItem("item_rol", "");
-        window.location.href = "/";
     };
 
     useEffect(() => {
@@ -77,7 +71,6 @@ const DocAppointments = () => {
                                         <p>No appointments available.</p>
                                     </div>
                                 )}
-                               
                             </div>
                         </div>
                     </div>

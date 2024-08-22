@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 const Clsindex = () => {
     const item_valueid = sessionStorage.getItem("item_key");
@@ -7,9 +7,7 @@ const Clsindex = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
 
-
-    
-    const Information = async () => {
+    const Information = useCallback(async () => {
         try {
             const response = await fetch(`${process.env.REACT_APP_GET_INFORMATION}/${item_valueid}`);
             const resp = await fetch(`${process.env.REACT_APP_GET_INFORMATION_ATENTION}/${item_valueid}`);
@@ -37,19 +35,17 @@ const Clsindex = () => {
                 }
             }
 
-       
-
         } catch (error) {
             console.error('Fetch error:', error.message);
             setError('Error fetching information');
         } finally {
             setLoading(false);
         }
-    };
+    }, [item_valueid]);
 
     useEffect(() => {
         Information();
-    }, []);
+    }, [Information]);
 
     return (
         <div>
@@ -96,13 +92,11 @@ const Clsindex = () => {
                                     ) : (
                                         <p>No medical appointments available.</p>
                                     )}
-                                   
                                 </div>
                             </div>
                             <div className="col-lg-4">
                                 <div className="card border-box">
-                                    <h2>Remember </h2>
-                                    
+                                    <h2>Remember</h2>
                                 </div>
                             </div>
                         </div>

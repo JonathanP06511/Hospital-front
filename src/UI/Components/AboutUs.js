@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 
-import room1 from '../img/index/01.jpeg';
-import room2 from '../img/index/02.jpg';
-import room3 from '../img/index/03.jpg';
-import room4 from '../img/index/04.jpg';
-import rent1 from '../img/index/chairs.png';
-import rent2 from '../img/index/table.png';
-import rent3 from '../img/index/sound.png';
-import serv1 from '../img/index/05.jpg';
-import serv2 from '../img/index/serv2.png';
-import serv3 from '../img/index/06.png';
 import bn1 from '../img/index/BANNER-SALUD1.jpg';
 import bn2 from '../img/index/BANNER-SALUD2.jpg';
 import bn3 from '../img/index/BANNER-SALUD3.jpg';
@@ -35,7 +25,7 @@ function Usrindex(args) {
                 return response.json();
             })
             .then(data => {
-                console.log('Images fetched:', data); // Verifica que las imágenes se reciban correctamente
+                console.log('Images fetched:', data); 
                 setImages(data);
             })
             .catch(error => console.error('Error fetching images:', error));
