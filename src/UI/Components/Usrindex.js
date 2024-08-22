@@ -47,7 +47,7 @@ function Usrindex(args) {
             onExited={() => setAnimating(false)}
             key={item.src}
         >
-            <img src={item.src} alt="" />
+            <img src={item.src} alt="Banner" />
             <CarouselCaption captionText="" captionHeader="" />
         </CarouselItem>
     ));
@@ -82,7 +82,7 @@ function Usrindex(args) {
                     <div className="section-title text-center">
                         <br />
                         <span className="text-uppercase text-danger">Video Presentation</span>
-                        <h2></h2>
+                        <h2>Our Latest Video</h2>
                     </div>
                 </div>
                 <br />
@@ -109,7 +109,7 @@ function Usrindex(args) {
                             <div className="instagram__pic d-flex flex-wrap">
                                 {[room1, room2, room3, room4, serv1, serv3].map((img, index) => (
                                     <div key={index} className="instagram__pic__item col-lg-4 col-md-4 col-sm-6 p-1">
-                                        <img src={img} className="img-fluid" alt="" />
+                                        <img src={img} className="img-fluid" alt="Instagram" />
                                     </div>
                                 ))}
                             </div>
