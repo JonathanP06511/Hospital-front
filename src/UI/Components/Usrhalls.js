@@ -8,7 +8,7 @@ const Usrhalls = () => {
     const [data_type, setDataType] = useState("All");
 
     useEffect(() => {
-        const FetchData = async () => {
+        const fetchData = async () => {
             try {
                 const resp = await fetch(`http://localhost:5000/apilisthalls/${data_type}/${capacity}`);
                 if (resp.ok) {
@@ -22,7 +22,7 @@ const Usrhalls = () => {
             }
         };
 
-        FetchData();
+        fetchData();
     }, [data_type, capacity]);
 
     const handleCapacityChange = (event) => {
@@ -71,7 +71,8 @@ const Usrhalls = () => {
                                             <option value="Classic">Classic</option>
                                             <option value="Thematic">Thematic</option>
                                             <option value="Outdoor">Outdoor</option>
-                                        </select> <br /><br />
+                                        </select>
+                                        <br /><br />
                                     </div>
                                     <div className="col-lg-6">
                                         <label htmlFor="capacityRange">Max. Capacity: {isMore ? 'More' : capacity}</label>
@@ -97,7 +98,7 @@ const Usrhalls = () => {
                                     </div>
                                     <div className="col-lg-2">
                                         <div className="shop__product__option__right">
-                                            <button className="site-btn" id="btn_add_car" onClick={() => FetchData()} >SEARCH</button>
+                                            <button className="site-btn" id="btn_add_car">SEARCH</button>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@ const Usrhalls = () => {
                                                 <img style={{ width: 'auto', height: 275 }} src={`http://localhost:5000/images/${filname.ProImagen}`} alt={filname.ProNombre} />
                                                 <span className="label">{filname.ProTipo}</span>
 
-                                                <ul className="product__hover"><br />
+                                                <ul className="product__hover">
                                                     <li className="label2">{filname.ProColor}</li>
                                                     <li className="label2">{filname.ProPeso} Kg</li>
                                                     <li className="label2">{filname.ProModelo}</li>
